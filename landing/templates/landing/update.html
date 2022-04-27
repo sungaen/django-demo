@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Create</title>
+</head>
+<body>
+  <form action="{% url 'landing:update' post.id %}" id="post-edit" method="post">
+        
+    {% csrf_token %}
+    <!-- 장고 보안설정 상 필요한 기능 -->
+     Title: <input type="text" name="title" value="{{post.title}}">
+     <!-- view.py에 있는 포스트에 기록되는 것이 name이다 -->
+     <!-- Title은 HTML에서 보여주는거고 인풋 타입을 텍스트, 네임 타이틀? 벨류는 안쪽에 실제 이름 준다 -->
+     <input type="submit" value="submit">
+    
+  </form>
+  <textarea name="content" form="post-edit"> {{ post.content }}</textarea>
+  
+    <!-- form에 있는 ID로 귀속시킨다 -->
+</body>
+</html>
